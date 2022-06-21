@@ -1,0 +1,107 @@
+package unibo.color3000;
+
+import java.util.Date;
+
+public class RigaDdt{
+	private int Riga;
+	private double Qtà;
+	private double Prezzo;
+	private String RAL;
+	private java.util.Date DataConsegna;
+	private String QtàEvasa;
+	private char Evaso;
+	private String CodArticolo;
+	private int R_Numero;
+	private int R_Anno;
+	private String R_Serie;
+	private String R_tipo;
+	public RigaDdt(int riga, double qtà, double prezzo, String rAL, Date dataConsegna, String qtàEvasa, char evaso,
+			String codArticolo, int r_Numero, int r_Anno, String r_Serie, String r_tipo) {
+		Riga = riga;
+		Qtà = qtà;
+		Prezzo = prezzo;
+		RAL = rAL;
+		DataConsegna = dataConsegna;
+		QtàEvasa = qtàEvasa;
+		Evaso = evaso;
+		CodArticolo = codArticolo;
+		R_Numero = r_Numero;
+		R_Anno = r_Anno;
+		R_Serie = r_Serie;
+		R_tipo = r_tipo;
+	}
+	public int getRiga() {
+		return Riga;
+	}
+	public void setRiga(int riga) {
+		Riga = riga;
+	}
+	public double getQtà() {
+		return Qtà;
+	}
+	public void setQtà(double qtà) {
+		Qtà = qtà;
+	}
+	public double getPrezzo() {
+		return Prezzo;
+	}
+	public void setPrezzo(double prezzo) {
+		Prezzo = prezzo;
+	}
+	public String getRAL() {
+		return RAL;
+	}
+	public void setRAL(String rAL) {
+		RAL = rAL;
+	}
+	public java.util.Date getDataConsegna() {
+		return DataConsegna;
+	}
+	public void setDataConsegna(java.util.Date dataConsegna) {
+		DataConsegna = dataConsegna;
+	}
+	public String getQtàEvasa() {
+		return QtàEvasa;
+	}
+	public void setQtàEvasa(String qtàEvasa) {
+		QtàEvasa = qtàEvasa;
+	}
+	public char getEvaso() {
+		return Evaso;
+	}
+	public void setEvaso(char evaso) {
+		Evaso = evaso;
+	}
+	public String getCodArticolo() {
+		return CodArticolo;
+	}
+	public void setCodArticolo(String codArticolo) {
+		CodArticolo = codArticolo;
+	}
+	public int getR_Numero() {
+		return R_Numero;
+	}
+	public void setR_Numero(int r_Numero) {
+		R_Numero = r_Numero;
+	}
+	public int getR_Anno() {
+		return R_Anno;
+	}
+	public void setR_Anno(int r_Anno) {
+		R_Anno = r_Anno;
+	}
+	public String getR_Serie() {
+		return R_Serie;
+	}
+	public void setR_Serie(String r_Serie) {
+		R_Serie = r_Serie;
+	}
+	public String getR_tipo() {
+		return R_tipo;
+	}
+	public void setR_tipo(String r_tipo) {
+		R_tipo = r_tipo;
+	}
+
+	
+}

@@ -1,0 +1,112 @@
+package unibo.color3000;
+
+public class RigaDdt{
+	private int Riga;
+	private double Qtà;
+	private double Prezzo;
+	private String RAL;
+	private java.util.Date DataConsegna;
+	private String QtàEvasa;
+	private char Evaso;
+	private String CodArticolo;
+	private int R_Numero;
+	private int R_Anno;
+	private String R_Serie;
+	private String R_tipo;
+
+	public int getRiga(){
+		return Riga;
+	}
+
+	public void setRiga(int Riga){
+		this.Riga=Riga;
+	}
+
+	public double getQtà(){
+		return Qtà;
+	}
+
+	public void setQtà(double Qtà){
+		this.Qtà=Qtà;
+	}
+
+	public double getPrezzo(){
+		return Prezzo;
+	}
+
+	public void setPrezzo(double Prezzo){
+		this.Prezzo=Prezzo;
+	}
+
+	public String getRal(){
+		return RAL;
+	}
+
+	public void setRal(String RAL){
+		this.RAL=RAL;
+	}
+
+	public java.util.Date getDataconsegna(){
+		return DataConsegna;
+	}
+
+	public void setDataconsegna(java.util.Date DataConsegna){
+		this.DataConsegna=DataConsegna;
+	}
+
+	public String getQtàevasa(){
+		return QtàEvasa;
+	}
+
+	public void setQtàevasa(String QtàEvasa){
+		this.QtàEvasa=QtàEvasa;
+	}
+
+	public char getEvaso(){
+		return Evaso;
+	}
+
+	public void setEvaso(char Evaso){
+		this.Evaso=Evaso;
+	}
+
+	public String getCodarticolo(){
+		return CodArticolo;
+	}
+
+	public void setCodarticolo(String CodArticolo){
+		this.CodArticolo=CodArticolo;
+	}
+
+	public int getR_numero(){
+		return R_Numero;
+	}
+
+	public void setR_numero(int R_Numero){
+		this.R_Numero=R_Numero;
+	}
+
+	public int getR_anno(){
+		return R_Anno;
+	}
+
+	public void setR_anno(int R_Anno){
+		this.R_Anno=R_Anno;
+	}
+
+	public String getR_serie(){
+		return R_Serie;
+	}
+
+	public void setR_serie(String R_Serie){
+		this.R_Serie=R_Serie;
+	}
+
+	public String getR_tipo(){
+		return R_tipo;
+	}
+
+	public void setR_tipo(String R_tipo){
+		this.R_tipo=R_tipo;
+	}
+}

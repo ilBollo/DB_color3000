@@ -1,0 +1,213 @@
+package unibo.color3000;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.util.List;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class FXMLController {
+    private final ConnectionProvider connection = new ConnectionProvider("root", "Rimini88", "color3000");
+	private final Connection con = connection.getMySQLConnection();
+	private final QueryDipendente q = new QueryDipendente(con);
+	ObservableList<Dipendente> test;
+    
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TextField ArAlotto;
+
+    @FXML
+    private TextField ArAlotto1;
+
+    @FXML
+    private TableColumn<?, ?> ArAlottoG;
+
+    @FXML
+    private TextField ArCodArt;
+
+    @FXML
+    private TableColumn<?, ?> ArCodArtG;
+
+    @FXML
+    private TextField ArCodart;
+
+    @FXML
+    private TextField ArDalotto;
+
+    @FXML
+    private TableColumn<?, ?> ArDalottoG;
+
+    @FXML
+    private DatePicker ArDatafinevalidità;
+
+    @FXML
+    private TableColumn<?, ?> ArDatafinevaliditàG;
+
+    @FXML
+    private DatePicker ArDatainiziovalidità;
+
+    @FXML
+    private TableColumn<?, ?> ArDatainiziovaliditàG;
+
+    @FXML
+    private TextField arCodartD;
+
+    @FXML
+    private TextField arCodartR;
+
+    @FXML
+    private TextField arCodricetta;
+
+    @FXML
+    private TextField arDescr;
+
+    @FXML
+    private TextField arPeso;
+
+    @FXML
+    private TextField arUm;
+
+    @FXML
+    private Button buttonDelArt;
+
+    @FXML
+    private Button buttonDelCl;
+
+    @FXML
+    private Button buttonInsArt;
+
+    @FXML
+    private Button buttonSeaArt;
+
+    @FXML
+    private TextField clCod;
+
+    @FXML
+    private TextField clCodC;
+
+    @FXML
+    private TextField clCodD;
+
+    @FXML
+    private TableColumn<?, ?> clCodG;
+
+    @FXML
+    private TextField clDenominaz;
+
+    @FXML
+    private TableColumn<?, ?> clDenominazG;
+
+    @FXML
+    private TableColumn<?, ?> clIndirizzoG;
+
+    @FXML
+    private TextField clMail;
+
+    @FXML
+    private TableColumn<?, ?> clMailG;
+
+    @FXML
+    private TextField clPiva;
+
+    @FXML
+    private TableColumn<?, ?> clPivaG;
+
+    @FXML
+    private TableColumn<?, ?> clTelefono;
+
+    @FXML
+    private TableView<?> clieTab;
+
+    @FXML
+    private TextField idNazionalità;
+
+    @FXML
+    private TableColumn<?, ?> idNazionalitàG;
+
+    @FXML
+    void buttonDelCl(ActionEvent event) {
+
+    }
+
+    @FXML
+    void buttonInsCl(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleSeachCl(ActionEvent event) {
+
+    }
+}
+/*
+    @FXML
+    private TableColumn<Dipendente, Integer> dipBadge;
+    
+    @FXML
+    private TableColumn<Dipendente, String> dipCodfisc;
+    
+    @FXML
+    private TableColumn<Dipendente, String> dipNome;
+    
+    @FXML
+    private TableColumn<Dipendente, String> dipCognome;
+
+    @FXML
+    private TableColumn<Dipendente, String> dipQualifica;
+
+    @FXML
+    private TableColumn<Dipendente, String> dipStipendio;
+
+    @FXML
+    private TableColumn<Dipendente, Integer> dipTurno;
+    @FXML
+    private TableView<Dipendente> dipTab;
+
+    @FXML
+    private TextField txtNumero;
+
+    @FXML
+    void handleControlla(ActionEvent event) {
+    String search = txtNumero.getText();
+    test = q.findByPrimaryKey(search);
+    System.out.println(test);
+    dipBadge.setCellValueFactory(new PropertyValueFactory<Dipendente, Integer>("nBadge"));
+    dipCodfisc.setCellValueFactory(new PropertyValueFactory<Dipendente, String>("cod_fisc"));
+    dipNome.setCellValueFactory(new PropertyValueFactory<Dipendente, String>("nome"));
+    dipCognome.setCellValueFactory(new PropertyValueFactory<Dipendente, String>("cognome"));
+    dipQualifica.setCellValueFactory(new PropertyValueFactory<Dipendente, String>("qualifica"));
+    dipStipendio.setCellValueFactory(new PropertyValueFactory<Dipendente, String>("turno"));
+    dipTurno.setCellValueFactory(new PropertyValueFactory<Dipendente, Integer>("stipendio"));
+    dipTab.setItems(test);
+    }
+    
+    @FXML
+    void initialize() {
+            assert dipBadge != null : "fx:id=\"dipBadge\" was not injected: check your FXML file 'Scene.fxml'.";
+            assert dipCodfisc != null : "fx:id=\"dipCodfisc\" was not injected: check your FXML file 'Scene.fxml'.";
+            assert dipCognome != null : "fx:id=\"dipCognome\" was not injected: check your FXML file 'Scene.fxml'.";
+            assert dipNome != null : "fx:id=\"dipNome\" was not injected: check your FXML file 'Scene.fxml'.";
+            assert dipQualifica != null : "fx:id=\"dipQualifica\" was not injected: check your FXML file 'Scene.fxml'.";
+            assert dipStipendio != null : "fx:id=\"dipStipendio\" was not injected: check your FXML file 'Scene.fxml'.";
+            assert dipTab != null : "fx:id=\"dipTab\" was not injected: check your FXML file 'Scene.fxml'.";
+            assert dipTurno != null : "fx:id=\"dipTurno\" was not injected: check your FXML file 'Scene.fxml'.";
+            assert txtNumero != null : "fx:id=\"txtNumero\" was not injected: check your FXML file 'Scene.fxml'.";
+    
+*/
+

@@ -1,0 +1,58 @@
+package unibo.color3000;
+
+ public class Ddt{
+	private int Anno;
+	private String Serie;
+	private String tipo;
+	private java.util.Date DataDDT;
+	private String CodCliente;
+	private int Nbadge;
+
+	public int getAnno(){
+		return Anno;
+	}
+
+	public void setAnno(int Anno){
+		this.Anno=Anno;
+	}
+
+	public String getSerie(){
+		return Serie;
+	}
+
+	public void setSerie(String Serie){
+		this.Serie=Serie;
+	}
+
+	public String getTipo(){
+		return tipo;
+	}
+
+	public void setTipo(String tipo){
+		this.tipo=tipo;
+	}
+
+	public java.util.Date getDataddt(){
+		return DataDDT;
+	}
+
+	public void setDataddt(java.util.Date DataDDT){
+		this.DataDDT=DataDDT;
+	}
+
+	public String getCodcliente(){
+		return CodCliente;
+	}
+
+	public void setCodcliente(String CodCliente){
+		this.CodCliente=CodCliente;
+	}
+
+	public int getNbadge(){
+		return Nbadge;
+	}
+
+	public void setNbadge(int Nbadge){
+		this.Nbadge=Nbadge;
+	}
+}

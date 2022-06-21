@@ -1,0 +1,20 @@
+1655107804909	Rename type 'Connessione'
+1655107985444	Delete element
+1655124159090	Rename type 'Query'
+1655128859935	Encapsulate field 'cod_fisc'
+1655304433251	Copy compilation unit
+1655305897279	Copy compilation unit
+1655307123314	Rename type 'QueryTable'
+1655307148681	Copy compilation unit
+1655310950579	Rename type 'FXMLController'
+1655310964962	Rename type 'FXMLController2'
+1655354355172	Rename type 'FXMLController'
+1655354381772	Rename type 'FXMLControllerOld'
+1655355207027	Delete element
+1655355348981	Move file
+1655355372396	Move file
+1655357908306	Rename compilation unit 'FXMLController.java'
+1655359356408	Rename type 'FXMLController2Old'
+1655535610142	Copy compilation unit
+1655536352708	Copy compilation unit
+1655538928521	Rename type 'RigaDDdt'

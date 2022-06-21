@@ -1,0 +1,83 @@
+package unibo.color3000;
+
+import java.util.Date;
+
+public class Ddt{
+	private int numeroDDT;
+	private int anno;
+	private String serie;
+	private String tipo;
+	private java.util.Date dataDDT;
+	private String codCliente;
+	private String evaso;
+	private int nbadge;
+
+	public Ddt(int numeroDDT, int anno, String serie, String tipo, Date dataDDT, String codCliente, String evaso, int nbadge) {
+		this.numeroDDT = numeroDDT;
+		this.anno = anno;
+		this.serie = serie;
+		this.tipo = tipo;
+		this.dataDDT = dataDDT;
+		this.codCliente = codCliente;
+		this.evaso = evaso;
+		this.nbadge = nbadge;
+	}
+	public int getNumeroDDT() {
+		return numeroDDT;
+	}
+	public void setNumeroDDT(int numeroDDT) {
+		this.numeroDDT = numeroDDT;
+	}
+	public int getAnno() {
+		return anno;
+	}
+	public void setAnno(int anno) {
+		this.anno = anno;
+	}
+	public String getSerie() {
+		return serie;
+	}
+	public void setSerie(String serie) {
+		this.serie = serie;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	public java.util.Date getDataDDT() {
+		return dataDDT;
+	}
+	public void setDataDDT(java.util.Date dataDDT) {
+		this.dataDDT = dataDDT;
+	}
+	public String getCodCliente() {
+		return codCliente;
+	}
+	public void setCodCliente(String codCliente) {
+		this.codCliente = codCliente;
+	}
+	public int getNbadge() {
+		return nbadge;
+	}
+	public void setNbadge(int nbadge) {
+		this.nbadge = nbadge;
+	}
+	
+	public String getEvaso() {
+		return evaso;
+	}
+	public void setEvaso(String evaso) {
+		this.evaso = evaso;
+	}
+	@Override
+	public String toString() {
+		return "Ddt [numeroDDT=" + numeroDDT + ", anno=" + anno + ", serie=" + serie + ", tipo=" + tipo + ", dataDDT="
+				+ dataDDT + ", codCliente=" + codCliente + ", nbadge=" + nbadge + "]";
+	}
+
+
+
+
+}

@@ -1,0 +1,91 @@
+package unibo.color3000;
+
+import java.sql.Connection;
+
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class FXMLController {
+
+	private final ConnectionProvider connection = new ConnectionProvider("root", "Rimini88", "color3000");
+	private final Connection con = connection.getMySQLConnection();
+	private final QueryClienti q = new QueryClienti(con);
+	private final QueryOrdiniProd queryOrdProd = new QueryOrdiniProd(con);
+	ObservableList<Clienti> test;
+	ObservableList<OrdiniProd> ossProd;
+
+	//cliente
+    @FXML
+    private TextField txtCliente;
+
+    @FXML
+    private TableColumn<Clienti,String> codCliente;
+    
+    @FXML
+    private TableColumn<Clienti,String> denominazione;
+
+    @FXML
+    private TableColumn<Clienti,String> partitaIVA;
+    
+    @FXML
+    private TableView<Clienti> cliTab;
+
+    @FXML
+    void handleControlla(ActionEvent event) {
+        String search = txtCliente.getText();
+        test = q.findByPrimaryKey(search);
+        System.out.println(test);
+        codCliente.setCellValueFactory(new PropertyValueFactory<Clienti, String>("CodCliente"));
+        partitaIVA.setCellValueFactory(new PropertyValueFactory<Clienti, String>("PartitaIVA"));
+        denominazione.setCellValueFactory(new PropertyValueFactory<Clienti, String>("Denominazione"));
+      
+        cliTab.setItems(test);
+    }
+
+//produzione
+  
+    @FXML
+    private TableView<OrdiniProd> proTab;
+    
+    @FXML
+    private TableColumn<OrdiniProd, Integer> op_centro;
+
+    @FXML
+    private TableColumn<OrdiniProd, String> op_cliente;
+
+    @FXML
+    private TableColumn<OrdiniProd, String> op_codice;
+
+    @FXML
+    private TableColumn<OrdiniProd, java.sql.Date> op_datascad;
+
+    @FXML
+    private TableColumn<OrdiniProd, Integer> op_ordine;
+
+    @FXML
+    private TableColumn<OrdiniProd, Integer> op_qtaevasa;
+
+    @FXML
+    private TableColumn<OrdiniProd, Integer> op_qtares;
+
+    @FXML
+    private TableColumn<OrdiniProd, String> op_ral;
+    
+    @FXML
+    void handleProd(ActionEvent event) {
+    	ossProd = queryOrdProd.findAll();
+        System.out.println(ossProd);
+        //op_ral.setCellValueFactory(new PropertyValueFactory<OrdiniProd, String>("IdRal"));
+        
+      
+        //proTab.setItems(ossProd);
+    }
+}
+
+

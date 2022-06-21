@@ -1,0 +1,19 @@
+INDEX VERSION 1.131+C:\Users\Giulia\Desktop\ecommerce\.metadata\.plugins\org.eclipse.jdt.core
+3026353975.index
+543207069.index
+3634121252.index
+1852452171.index
+1715847292.index
+625712631.index
+2370533044.index
+1529279486.index
+2873618422.index
+1851376879.index
+1697228142.index
+921501171.index
+1865797976.index
+2020464846.index
+2108095250.index
+501273058.index
+3568026055.index
+3038845796.index

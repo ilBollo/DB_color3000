@@ -1,0 +1,103 @@
+package unibo.color3000;
+
+import java.sql.Date;
+import java.util.Objects;
+
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class OrdiniProd {
+/*	private final String fase;
+	private final Integer qtà;
+	private final Integer qtàPronta;
+	private final Integer qtàEvasa;
+	private final String evaso;
+	private final java.sql.Date dataScad;
+	private final String stato;
+	private final String idRAL;
+	private final Integer nbadge;
+	private final String codArticolo;
+	private final String commessa;
+	private final String tipo;
+	private final Integer anno;
+	private final String serie;
+	private final Integer riga;
+/*	public OrdiniProd(String fase, String codCliente, Integer qtà, Integer qtàPronta, Integer qtàEvasa, String evaso,
+			Date dataScad, String stato, String idRAL, Integer codiceCentro, Integer nbadge, String codArticolo,
+			String commessa, String tipo, Integer anno, String serie, Integer numero, Integer riga) {
+		this.fase = fase;
+		this.codCliente = codCliente;
+		this.qtà = qtà;
+		this.qtàPronta = qtàPronta;
+		this.qtàEvasa = qtàEvasa;
+		this.evaso = evaso;
+		this.dataScad = dataScad;
+		this.stato = stato;
+		this.idRAL = idRAL;
+		this.codiceCentro = codiceCentro;
+		this.nbadge = nbadge;
+		this.codArticolo = codArticolo;
+		this.commessa = commessa;
+		this.tipo = tipo;
+		this.anno = anno;
+		this.serie = serie;
+		this.numero = numero;
+		this.riga = riga;
+	}
+	*/
+
+	private final String idRAL;
+	private final Integer codiceCentro;
+	private final String codCliente;
+	private final Integer numero;
+
+
+	
+	public OrdiniProd(String idRAL, Integer codCentro, String codCliente, Integer numero) {
+		this.idRAL = idRAL;
+		this.codiceCentro = codCentro;
+		this.codCliente = codCliente;
+		this.numero = numero;
+		
+	}
+
+
+
+	public String getIdRAL() {
+		return idRAL;
+	}
+
+
+
+	public Integer getCodiceCentro() {
+		return codiceCentro;
+	}
+
+
+
+	public String getCodCliente() {
+		return codCliente;
+	}
+
+
+
+	public Integer getNumero() {
+		return numero;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "OrdiniProd [idRAL=" + idRAL + ", codiceCentro=" + codiceCentro + ", codCliente=" + codCliente
+				+ ", numero=" + numero + "]";
+	}
+
+
+
+	
+	
+
+
+}
+
+

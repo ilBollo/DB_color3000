@@ -1,0 +1,39 @@
+package unibo.color3000;
+
+import java.util.Date;
+
+public class Ddt{
+	private int numeroDDT;
+	private int anno;
+	private String serie;
+	private String tipo;
+	private java.util.Date dataDDT;
+	private String codCliente;
+	private String evaso;
+	private int nbadge;
+
+	public Ddt(int numeroDDT) {
+		this.numeroDDT = numeroDDT;
+	
+	}
+
+	@Override
+	public String toString() {
+		return "Ddt [numeroDDT=" + numeroDDT + "]";
+	}
+
+	
+/*	public Ddt(int numeroDDT, int anno, String serie, String tipo, Date dataDDT, String codCliente, String evaso, int nbadge) {
+		this.numeroDDT = numeroDDT;
+		this.anno = anno;
+		this.serie = serie;
+		this.tipo = tipo;
+		this.dataDDT = dataDDT;
+		this.codCliente = codCliente;
+		this.evaso = evaso;
+		this.nbadge = nbadge;
+	}
+
+*/
+
+}

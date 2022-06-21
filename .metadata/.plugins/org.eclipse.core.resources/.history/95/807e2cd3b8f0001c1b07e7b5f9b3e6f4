@@ -1,0 +1,44 @@
+package unibo.color3000;
+
+import java.util.Date;
+
+public class righeDDT {
+
+	private String commessa;
+	private int riga;
+	private double qtà;
+	private double prezzo;
+	private String ral;
+	private java.util.Date dataConsegna;
+	private double qtàEvasa;
+	private String evaso;
+	private String codArticolo;
+	private int numeroDDT;
+	private int annoDDT;
+	private String serieDDT;
+	private String tipoDDT;
+
+	public righeDDT(String commessa, int riga, double qtà, double prezzo, String ral, java.util.Date dataConsegna,
+		double qtàEvasa, String evaso, String codArticolo, int numeroDDT, int annoDDT, String serieDDT,
+		String tipoDDT) {
+		commessa = commessa;
+		riga = riga;
+		qtà = qtà;
+		prezzo = prezzo;
+		ral = ral;
+		dataConsegna = dataConsegna;
+		qtàEvasa = qtàEvasa;
+		evaso = evaso;
+		codArticolo = codArticolo;
+		numeroDDT = numeroDDT;
+		annoDDT = annoDDT;
+		serieDDT = serieDDT;
+		tipoDDT = tipoDDT;
+	}
+
+	
+
+	
+
+	}	
+	

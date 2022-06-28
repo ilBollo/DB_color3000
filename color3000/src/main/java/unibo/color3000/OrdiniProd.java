@@ -3,142 +3,106 @@ package unibo.color3000;
 import java.sql.Date;
 import java.util.Objects;
 
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class OrdiniProd {
-/*	private final String fase;
-	private final Integer qtàPronta;
-	private final Integer qtàEvasa;
-	private final String evaso;
-	private final String stato;
-	private final Integer nbadge;
+
+	private final String centro;
 	private final String commessa;
-	private final String tipo;
-	private final Integer anno;
-	private final String serie;
-	private final Integer riga;
-/*	public OrdiniProd(String fase, String codCliente, Integer qtà, Integer qtàPronta, Integer qtàEvasa, String evaso,
-			Date dataScad, String stato, String idRAL, Integer codiceCentro, Integer nbadge, String codArticolo,
-			String commessa, String tipo, Integer anno, String serie, Integer numero, Integer riga) {
-		this.fase = fase;
-		this.qtàPronta = qtàPronta;
-		this.qtàEvasa = qtàEvasa;
-		this.evaso = evaso;
-		this.stato = stato;
-		this.codiceCentro = codiceCentro;
-		this.nbadge = nbadge;
-		this.commessa = commessa;
-		this.tipo = tipo;
-		this.anno = anno;
-		this.serie = serie;
-		this.riga = riga;
-	}
-	*/
-
+	private final String cliente;
+	private final Integer fase;
+	private final double qtà;
+	private final double qtàpr;
+	private final double qtàev;
+	private final String ev;
+	private final java.sql.Date datascad;
+	private final String stato;
 	private final String idRAL;
-	private final Integer codiceCentro;
-	private final String codCliente;
-	private final Integer numero;
-	private final String descrRicetta;
+	private final Integer nbadge;
 	private final String codArticolo;
-	private final Integer qtà;
-	public java.sql.Date getDataScad() {
-		return dataScad;
-	}
-
-
-
-	private final java.sql.Date dataScad;
-
-
+	private final Integer rigaDDT;
 	
-	public OrdiniProd(String idRAL, Integer codCentro, String codCliente, Integer numero, String descrRicetta,
-			String codArticolo, Integer qtà, java.sql.Date dataScad) {
-		this.idRAL = idRAL;
-		this.codiceCentro = codCentro;
-		this.codCliente = codCliente;
-		this.numero = numero;
-		this.descrRicetta = descrRicetta;
-		this.codArticolo = codArticolo;
+	public OrdiniProd(String centro, String commessa, String cliente, Integer fase, double qtà, double qtàpr, double qtàev,
+			String ev, java.sql.Date datascad, String stato, String idRAL, Integer nbadge, String codArticolo, Integer rigaDDT) {
+
+		this.centro = centro;
+		this.commessa = commessa;
+		this.cliente = cliente;
+		this.fase = fase;
 		this.qtà = qtà;
-		this.dataScad = dataScad;
-
-
-		
+		this.qtàpr = qtàpr;
+		this.qtàev = qtàev;
+		this.ev = ev;
+		this.datascad = datascad;
+		this.stato = stato;
+		this.idRAL = idRAL;
+		this.nbadge = nbadge;
+		this.codArticolo = codArticolo;
+		this.rigaDDT = rigaDDT;
 	}
 
+	public String getCentro() {
+		return centro;
+	}
 
+	public String getCommessa() {
+		return commessa;
+	}
 
-	public Integer getQtà() {
+	public String getCliente() {
+		return cliente;
+	}
+
+	public Integer getFase() {
+		return fase;
+	}
+
+	public double getQtà() {
 		return qtà;
 	}
 
-
-
-	public String getCodArticolo() {
-		return codArticolo;
+	public double getQtàpr() {
+		return qtàpr;
 	}
 
+	public double getQtàev() {
+		return qtàev;
+	}
 
+	public String getEv() {
+		return ev;
+	}
+
+	public java.sql.Date getDatascad() {
+		return datascad;
+	}
+
+	public String getStato() {
+		return stato;
+	}
 
 	public String getIdRAL() {
 		return idRAL;
 	}
 
-
-
-	public Integer getCodiceCentro() {
-		return codiceCentro;
+	public Integer getNbadge() {
+		return nbadge;
 	}
 
-
-
-	public String getCodCliente() {
-		return codCliente;
+	public String getCodArticolo() {
+		return codArticolo;
 	}
 
-
-
-	public Integer getNumero() {
-		return numero;
+	public Integer getRigaDDT() {
+		return rigaDDT;
 	}
-
-
-
-	public String getDescrRicetta() {
-		return descrRicetta;
-	}
-
-
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(codArticolo, codCliente, codiceCentro, descrRicetta, idRAL, numero);
+	public String toString() {
+		return "OrdiniProd [centro=" + centro + ", commessa=" + commessa + ", cliente=" + cliente + ", fase=" + fase
+				+ ", qtà=" + qtà + ", qtàpr=" + qtàpr + ", qtàev=" + qtàev + ", ev=" + ev + ", datascad=" + datascad
+				+ ", stato=" + stato + ", idRAL=" + idRAL + ", nbadge=" + nbadge + ", codArticolo=" + codArticolo
+				+ ", rigaDDT=" + rigaDDT + "]";
 	}
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		OrdiniProd other = (OrdiniProd) obj;
-		return Objects.equals(codArticolo, other.codArticolo) && Objects.equals(codCliente, other.codCliente)
-				&& Objects.equals(codiceCentro, other.codiceCentro) && Objects.equals(descrRicetta, other.descrRicetta)
-				&& Objects.equals(idRAL, other.idRAL) && Objects.equals(numero, other.numero);
-	}
-
-
-
-
-
-
-	
-	
 
 
 }

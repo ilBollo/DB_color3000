@@ -64,6 +64,27 @@ public final class QueryDDT implements Table<Ddt, Integer> {
         }
     }
     
+    public ObservableList<Ddt> findAllArrivi() {
+        try (final Statement statement = this.connection.createStatement()) {
+            final ResultSet resultSet = statement.executeQuery("SELECT ddt.NumeroDDT, ddt.AnnoDDT, ddt.SerieDDT, ddt.TipoDDT, ddt.DataDDT, ddt.CodCliente, cli.Denominazione, Nbadge FROM " + "ddt " +"LEFT JOIN clienti cli on ddt.CodCliente=cli.CodCliente"
+        + " WHERE ddt.TipoDDT ='a'");
+            return readQueryFromResultSet(resultSet);
+        } catch (final SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+    
+    public ObservableList<Ddt> findAllPartenze() {
+        try (final Statement statement = this.connection.createStatement()) {
+            final ResultSet resultSet = statement.executeQuery("SELECT ddt.NumeroDDT, ddt.AnnoDDT, ddt.SerieDDT, ddt.TipoDDT, ddt.DataDDT, ddt.CodCliente, cli.Denominazione, Nbadge FROM " + "ddt " +"LEFT JOIN clienti cli on ddt.CodCliente=cli.CodCliente"
+        + " WHERE ddt.TipoDDT ='U'");
+            return readQueryFromResultSet(resultSet);
+        } catch (final SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+    
+    
     public ObservableList<Ddt> findByPrimaryKey(final String codCliente) {
         final String query = "SELECT * FROM " + TABLE_NAME + " WHERE CodCliente = ?";
         try (final PreparedStatement statement = this.connection.prepareStatement(query)) {
@@ -101,8 +122,6 @@ public final class QueryDDT implements Table<Ddt, Integer> {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-
 
 	    
     @Override
@@ -164,4 +183,6 @@ public final class QueryDDT implements Table<Ddt, Integer> {
         }
     }
     */
+
+
 }

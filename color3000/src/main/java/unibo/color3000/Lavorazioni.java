@@ -1,19 +1,15 @@
 package unibo.color3000;
 
-import java.sql.Date;
-
 public class Lavorazioni {
-	private final int numeroLav;
-	private final java.sql.Date dataInizio;
-	private final java.sql.Date dataFine;
+	private final java.util.Date dataInizio;
+	private final java.util.Date dataFine;
 	private final double qtà;
 	private final String stato;
 	private final int nbadge;
 	private final String commessa;
 	private final int fase;
 
-	public Lavorazioni(int numeroLav, Date dataInizio, Date dataFine, double qtà, String stato, int nbadge, String commessa, int fase) {
-		this.numeroLav = numeroLav;
+	public Lavorazioni(java.util.Date dataInizio, java.util.Date dataFine, double qtà, String stato, int nbadge, String commessa, int fase) {
 		this.dataInizio = dataInizio;
 		this.dataFine = dataFine;
 		this.qtà = qtà;
@@ -23,15 +19,12 @@ public class Lavorazioni {
 		this.fase = fase;
 	}
 
-	public int getNumeroLav() {
-		return numeroLav;
-	}
 
-	public java.sql.Date getDataInizio() {
+	public java.util.Date getDataInizio() {
 		return dataInizio;
 	}
 
-	public java.sql.Date getDataFine() {
+	public java.util.Date getDataFine() {
 		return dataFine;
 	}
 
@@ -57,7 +50,7 @@ public class Lavorazioni {
 
 	@Override
 	public String toString() {
-		return "Lavorazioni [numeroLav=" + numeroLav + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine
+		return "Lavorazioni [dataInizio=" + dataInizio + ", dataFine=" + dataFine
 				+ ", qtà=" + qtà + ", stato=" + stato + ", nbadge=" + nbadge + ", commessa=" + commessa + ", fase="
 				+ fase + "]";
 	}

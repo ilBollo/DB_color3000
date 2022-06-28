@@ -42,6 +42,8 @@ public interface Table<V,K> {
      * @return false if the object could not be updated (e.g. there is not already an
      *         object with the given primary key in the database)
      */
+    
+    
     boolean update(final V updatedValue);
     
     /**

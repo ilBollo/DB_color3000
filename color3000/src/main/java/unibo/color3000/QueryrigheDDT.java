@@ -59,11 +59,14 @@ public final class QueryrigheDDT implements Table<RigheDDT, Integer> {
         } catch (final SQLException e) {}
         return result;
     }
-
+    //aggiunto filtro che non fa vedere quelle per le quali c'è già produzione
     @Override
     public ObservableList<RigheDDT> findAll() {
         try (final Statement statement = this.connection.createStatement()) {
-            final ResultSet resultSet = statement.executeQuery("SELECT * FROM " + "riga_ddt ");
+            final ResultSet resultSet = statement.executeQuery("SELECT riga_ddt.Riga, riga_ddt.Commessa, riga_ddt.CodArticolo, riga_ddt.Qtà, Prezzo, RAL, DataConsegna, riga_ddt.QtàEvasa, riga_ddt.Evaso, NumeroDDT, AnnoDDT, SerieDDT, riga_ddt.tipoDDT, ri.Descr FROM " + "riga_ddt " +  "LEFT JOIN articoli ar on riga_ddt.CodArticolo = ar.CodArticolo"
+            		+ " LEFT JOIN ricette ri on ar.CodRicetta = ri.CodRicetta" + " LEFT JOIN ordini_produzione op on riga_ddt.Commessa = op.Commessa"+
+            		" WHERE riga_ddt.Commessa NOT IN (SELECT op.Commessa FROM riga_ddt LEFT JOIN articoli ar on riga_ddt.CodArticolo = ar.CodArticolo "
+            		+ "LEFT JOIN ricette ri on ar.CodRicetta = ri.CodRicetta INNER JOIN ordini_produzione op on riga_ddt.Commessa = op.Commessa)" );
             return readQueryFromResultSet(resultSet);
         } catch (final SQLException e) {
             throw new IllegalStateException(e);
@@ -72,7 +75,7 @@ public final class QueryrigheDDT implements Table<RigheDDT, Integer> {
     
     public ObservableList<RigheDDT> findByPrimaryKey(final int numero) {
         final String query = "SELECT Riga, Commessa, riga_ddt.CodArticolo, Qtà, Prezzo, RAL, DataConsegna, QtàEvasa, Evaso, NumeroDDT, AnnoDDT, SerieDDT, tipoDDT, ri.Descr FROM " + "riga_ddt " +  "LEFT JOIN articoli ar on riga_ddt.CodArticolo = ar.CodArticolo"
-        		+ " LEFT JOIN ricette ri on ar.CodRicetta = ri.CodRicetta" + " WHERE NumeroDDT = ?";
+        		+ " LEFT JOIN ricette ri on ar.CodRicetta = ri.CodRicetta" + " WHERE NumeroDDT = ?" + " order by Riga";
         try (final PreparedStatement statement = this.connection.prepareStatement(query)) {
             statement.setInt(1, numero);
             final ResultSet resultSet = statement.executeQuery();
@@ -82,6 +85,61 @@ public final class QueryrigheDDT implements Table<RigheDDT, Integer> {
         }
     }  
     
+	public Integer searchNrigheDDTArrivo(final int numero, final int anno, final String Serie) {
+		final String query = "select count(Riga) from riga_ddt\r\n"
+				+ "where NumeroDDT = ? and AnnoDDT = ? and SerieDDT = ? and TipoDDT = 'A'";
+		try (final PreparedStatement statement = this.connection.prepareStatement(query)) {
+			statement.setInt(1, numero);
+			statement.setInt(2, anno);
+			statement.setString(3, Serie);
+			final ResultSet resultSet = statement.executeQuery();
+			int ris=0;
+			while(resultSet.next())
+			{
+				ris =resultSet.getInt("count(Riga)");
+			}
+			return ris;
+		} catch (final SQLException e) {
+			throw new IllegalStateException(e);
+		}
+	}
+	
+	public Double searchPrezzo(final String commessa) {
+		final String query = "select Prezzo from riga_ddt"
+				+ " where Commessa = ?";
+				try (final PreparedStatement statement = this.connection.prepareStatement(query)) {
+					statement.setString(1, commessa);
+					final ResultSet resultSet = statement.executeQuery();
+					Double ris=0.0;
+					while(resultSet.next())
+					{
+						ris =resultSet.getDouble("Prezzo");
+					}
+					return ris;
+				} catch (final SQLException e) {
+					throw new IllegalStateException(e);
+				}
+			}
+	
+	public Integer searchNrigheDDTUscita(final int numero, final int anno, final String Serie) {
+		final String query = "select count(Riga) from riga_ddt\r\n"
+				+ "where NumeroDDT = ? and AnnoDDT = ? and SerieDDT = ? and TipoDDT = 'U'";
+		try (final PreparedStatement statement = this.connection.prepareStatement(query)) {
+			statement.setInt(1, numero);
+			statement.setInt(2, anno);
+			statement.setString(3, Serie);
+			final ResultSet resultSet = statement.executeQuery();
+			int ris=1;
+			while(resultSet.next())
+			{
+				ris =resultSet.getInt("count(Riga)");
+			}
+			return ris;
+		} catch (final SQLException e) {
+			throw new IllegalStateException(e);
+		}
+	}
+
 
 	@Override
 	public boolean delete(Integer primaryKey) {
@@ -102,6 +160,20 @@ public final class QueryrigheDDT implements Table<RigheDDT, Integer> {
 	}
 
 
+	public boolean updateOrdProd(final Double qtà, final String commessa, final int fase) {
+	final String query = "update ordini_produzione op left join riga_ddt on op.Commessa = riga_ddt.Commessa set op.QtàPronta = op.QtàPronta-?,"
+			+ " op.QtàEvasa = op.QtàEvasa+?, riga_ddt.QtàEvasa = riga_ddt.QtàEvasa+?" + " where op.Commessa =? and op.Fase =?";
+        try (final PreparedStatement statement = this.connection.prepareStatement(query)) {
+            statement.setDouble(1, qtà);
+            statement.setDouble(2, qtà);
+            statement.setDouble(3, qtà);
+            statement.setString(4, commessa );
+            statement.setInt(5, fase);
+            return statement.executeUpdate() > 0;
+        } catch (final SQLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
 
 	@Override
 	public boolean update(RigheDDT updatedValue) {
@@ -137,7 +209,8 @@ public final class QueryrigheDDT implements Table<RigheDDT, Integer> {
             throw new IllegalStateException(e);
         }
     }
-   
+
+
     /*
     
     @Override
@@ -151,23 +224,5 @@ public final class QueryrigheDDT implements Table<RigheDDT, Integer> {
         }
     }
     
-    @Override
-    public boolean update(final Student student) {
-        final String query =
-            "UPDATE " + TABLE_NAME + " SET " +
-                "firstName = ?," + 
-                "lastName = ?," +
-                "birthday = ? " + 
-            "WHERE id = ?";
-        try (final PreparedStatement statement = this.connection.prepareStatement(query)) {
-            statement.setString(1, student.getFirstName());
-            statement.setString(2, student.getLastName());
-            statement.setDate(3, student.getBirthday().map(Utils::dateToSqlDate).orElse(null));
-            statement.setInt(4, student.getId());
-            return statement.executeUpdate() > 0;
-        } catch (final SQLException e) {
-            throw new IllegalStateException(e);
-        }
-    }
     */
 }

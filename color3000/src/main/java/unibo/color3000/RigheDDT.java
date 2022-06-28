@@ -1,6 +1,5 @@
 package unibo.color3000;
 
-import java.util.Date;
 
 public class RigheDDT {
 
